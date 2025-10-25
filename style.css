@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    margin: 30px 0 50px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f8f9fa; /* 图片加载前的背景色 */
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-icon {
+    color: white;
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-icon {
+    transform: translateY(0);
+}
+
+.card-icon span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.card-icon p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    min-height: 70px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* 为不同卡片设置不同的悬停覆盖颜色 */
+.card:nth-child(1) .card-overlay {
+    background: rgba(102, 126, 234, 0.85);
+}
+
+.card:nth-child(2) .card-overlay {
+    background: rgba(240, 147, 251, 0.85);
+}
+
+.card:nth-child(3) .card-overlay {
+    background: rgba(79, 172, 254, 0.85);
+}
+
+.card:nth-child(4) .card-overlay {
+    background: rgba(67, 233, 123, 0.85);
+}
+
+.card:nth-child(5) .card-overlay {
+    background: rgba(250, 112, 154, 0.85);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+        margin: 20px 0 30px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .card-icon span {
+        font-size: 2.2rem;
+    }
+    
+    .card-icon p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .card-icon span {
+        font-size: 2rem;
+    }
+    
+    .card-icon p {
+        font-size: 0.9rem;
+    }
+}
